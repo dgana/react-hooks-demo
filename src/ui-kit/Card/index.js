@@ -1,12 +1,15 @@
 import React from 'react'
 import style from './Card.module.css'
 
-const Card = ({ children, ...restProps }) => {
-  return (
-    <div className={style.card} {...restProps}>
-      {children}
-    </div>
-  )
-}
+class Card extends React.Component {
+  render() {
+    const { children, ...restProps } = this.props
+    return (
+      <div className={style.card} {...restProps}>
+        {this.props.children}
+      </div>
+    )
+  }
+}  
 
 export default Card
