@@ -1,0 +1,12 @@
+const SHOW = 'SHOW'
+const EPISODE = 'EPISODE'
+
+const ADD_MOVIE = 'ADD_MOVIE'
+const DELETE_MOVIE = 'DELETE_MOVIE'
+
+export {
+  SHOW,
+  EPISODE,
+  ADD_MOVIE,
+  DELETE_MOVIE
+}

@@ -1,0 +1,49 @@
+.image {
+  width: 24rem;
+  border-radius: 6px;
+}
+
+.h1 {
+  color: white;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.p {
+  color: white;
+  font-size: 24px;
+  line-height: 36px;
+}
+
+.star {
+  width: 2rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.ul {
+  color: antiquewhite;
+  font-size: 24px;
+}
+
+.premiered {
+  color: white;
+  font-size: 24px;
+  color: burlywood;
+}
+
+.hr {
+  margin-top: 1.6rem;
+}
+
+.like {
+  width: 4rem;
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  cursor: pointer;
+}
+
+.relative {
+  position: relative;
+}

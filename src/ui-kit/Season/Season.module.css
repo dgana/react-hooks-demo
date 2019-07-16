@@ -1,0 +1,10 @@
+.h1 {
+  color: darksalmon;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+}
+
+.border {
+  border: 1px dashed gray;
+  margin-bottom: 2rem;
+}

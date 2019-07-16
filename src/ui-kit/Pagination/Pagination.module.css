@@ -1,0 +1,21 @@
+.left {
+  position: fixed;
+  left: 10px;
+  top: 20rem;
+  cursor: pointer;
+}
+
+.right {
+  position: fixed;
+  right: 10px;
+  top: 20rem;
+  cursor: pointer;
+}
+
+.imgLeft {
+  width: 10rem;
+}
+
+.imgRight {
+  width: 10rem;
+}

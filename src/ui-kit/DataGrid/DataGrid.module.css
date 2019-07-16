@@ -1,0 +1,32 @@
+.gridContainer {
+  display: grid;
+  justify-items: center;
+}
+
+.large {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.medium {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.small {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.show {
+  width: 24rem;
+  height: 32rem;
+  border-radius: 6px;
+}
+
+.episode {
+  width: 24rem;
+  height: 14rem;
+  border-radius: 6px;
+}
+
+.h2 {
+  color: darkgrey
+}
