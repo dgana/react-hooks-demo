@@ -9,7 +9,6 @@ import saveIcon from 'assets/save.png'
 
 import useForm from 'hooks/useForm'
 import useDebounce from 'hooks/useDebounce'
-import usePrevious from 'hooks/usePrevious'
 import useFetch from 'hooks/useFetch'
 import { Link, navigate } from '@reach/router'
 
@@ -17,9 +16,18 @@ import styles from './Header.module.css'
 
 const Header = ({ location }) => {
   const [query, setQuery] = useState('');
-  const [{ search }, onChange] = useForm({ search: '' })
+  const [{ search, count }, onChange] = useForm({ search: '', count: 1 })
   const [{ id }] = useFetch(`${baseURL}singlesearch/shows?q=${query}`, {}, query)
 
+  useDebounce(() => {
+    if (search) {
+      setQuery(search)
+    }
+  }, count * 1000, [search, count])
+
+  /**
+   * Effect after debounce 
+   */
   useEffect(() => {
     if (id) {
       if (window.location.href.includes('show')) {
@@ -31,24 +39,14 @@ const Header = ({ location }) => {
     }
   }, [id, query])
 
-  const prevLocation = usePrevious(location.pathname)
-  const isSamePath = location.pathname !== prevLocation
-  const homePath = location.pathname === '/'
-
   /**
    * Effect when the page is in HomePage to clear searchValue
    */
   useEffect(() => {
-    if (search !== '' && isSamePath && homePath) {
+    if (location.pathname === '/') {
       onChange({ target: { name: 'search', value: '' }})
     }
-  }, [homePath, isSamePath, onChange, search])
-
-  useDebounce(() => {
-    if (search) {
-      setQuery(search)
-    }
-  }, 1000, [search])
+  }, [location.pathname, onChange])
   
   return (
     <FlexBox className={styles.fixed} justify='space-between' align="center">
@@ -56,6 +54,14 @@ const Header = ({ location }) => {
         <H1 className={styles.h1}>TV Show</H1>
       </Link>
       <FlexBox align="center" justify='flex-start'>
+        <Input 
+          type="number" 
+          name="count"
+          placeholder="change debounce ms"
+          className={styles.inputBounce} 
+          value={count} 
+          onChange={onChange} 
+        />
         <Input 
           type="search" 
           name="search"
